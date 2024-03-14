@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         val input = findViewById<EditText>(R.id.numberInput);
         val outputBox = findViewById<TextView>(R.id.outputText);
         val number = input.text.toString().toIntOrNull() ?: return;
-        val rand = Random.nextInt(1, number);
+        if (number >= 2147483647) return;
+        val rand = Random.nextInt(1, number + 1);
         outputBox.text = rand.toString();
     }
 }
